@@ -13,7 +13,7 @@ class ProductReviewsController extends Controller
     //
     public function index()
     {
-        $productReviews = auth()->user()->productReviews()->where('product', 'like,', '%' . request('keyword') . '%')->paginate(10);
+        $productReviews = auth()->user()->productReviews()->where('name', 'like,', '%' . request('keyword') . '%')->paginate(10);
         return response()->json([
             'message' => 'success',
             'data'    => ProductReviewsResource::collection($productReviews),
@@ -22,12 +22,12 @@ class ProductReviewsController extends Controller
     public function store(Request $request)
     {
         $productReviews = auth()->user()->productReviews()->create([
-            'name'  => request()->name,
-            'score' => request()->score,
-            'review' => request()->review,
-            'slug'  => request()->slug,
-            'product_id' => request()->product_id,
-            'user_id' => request()->user_id,
+            'name'  => $request()->name,
+            'score' => $request()->score,
+            'review' => $request()->review,
+            'slug'  => $request()->slug,
+            'product_id' => $request()->product_id,
+            'user_id' => $request()->user_id,
         ]);
         return response()->json([
             'message'   => 'success',
