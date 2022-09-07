@@ -22,12 +22,12 @@ class ProductReviewsController extends Controller
     public function store(Request $request)
     {
         $productReviews = auth()->user()->productReviews()->create([
-            'name'  => $request()->name,
-            'score' => $request()->score,
-            'review' => $request()->review,
-            'slug'  => $request()->slug,
-            'product_id' => $request()->product_id,
-            'user_id' => $request()->user_id,
+            'name'  => $request->name,
+            'score' => $request->score,
+            'review' => $request->review,
+            'slug'  => $request->slug,
+            'product_id' => $request->product_id,
+            'user_id' => $request->user_id,
         ]);
         return response()->json([
             'message'   => 'success',
@@ -58,12 +58,12 @@ class ProductReviewsController extends Controller
             ]);
         }
         $productReviews->update([
-            'name' => $request()->name,
-            'score' => $request()->score,
-            'review' => $request()->review,
-            'slug' => $request()->slug,
-            'product_id' => $request()->product_id,
-            'user_id' => $request()->user_id,
+            'name' => $request->name,
+            'score' => $request->score,
+            'review' => $request->review,
+            'slug' => $request->slug,
+            'product_id' => $request->product_id,
+            'user_id' => $request->user_id,
 
         ]);
         return response()->json([
