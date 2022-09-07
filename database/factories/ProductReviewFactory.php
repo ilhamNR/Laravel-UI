@@ -20,6 +20,7 @@ class ProductReviewFactory extends Factory
             'name' => fake()->name(),
             'score' => mt_rand(1,5),
             'review' => fake()->sentence(mt_rand(1,20)),
+            'slug' => fake()->slug(),
             'product_id' => mt_rand(1,50),
             'user_id' => mt_rand(1,50),
             //

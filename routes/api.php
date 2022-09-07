@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\ProductReviewsController;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,8 @@ Route::post('/register', [App\Http\Controllers\API\AuthController::class, 'regis
 //API route for login user
 Route::post('/login', [App\Http\Controllers\API\AuthController::class, 'login']);
 
+//Product Reviews API route
+Route::resource('/productreviews', ProductReviewsController::class)->middleware('auth:sanctum');
 //Protecting Routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/profile', function(Request $request) {
